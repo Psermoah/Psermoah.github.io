@@ -180,10 +180,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-04-23 14:14:10 / 修改时间：21:26:25" itemprop="dateCreated datePublished" datetime="2023-04-23T14:14:10+08:00">2023-04-23</time>
+              <time title="创建时间：2023-04-23 14:14:10" itemprop="dateCreated datePublished" datetime="2023-04-23T14:14:10+08:00">2023-04-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-24 00:11:49" itemprop="dateModified" datetime="2023-04-24T00:11:49+08:00">2023-04-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -248,6 +254,26 @@
 <p>使用p1调用成员变量和成员方法，p1是Person类型的，所以默认会从Person中查找<br>成员变量:子类对象会把父类的成员变量继承下来，所以有Person: className和Student:className。<br>p1是Person类型，所以会调用Person:className;<br>成员方法:子类继承父类后如果对方法进行重写(Override)，重写的子类方法将会覆盖虚方法表中的父类方法，所以调用方法时是子类中的方法。</p>
 <p><code>p1.showStuInfo();</code><br>无法运行<br>这是多态的弊端，不能调用子类中特有的方法。<br>解决方法是将父类型变为子类型,这样就可以使用子类特有方法。</p>
 <p>转换类型时不能随意转换为其他类型<br>如<br><code>Teacher t1=(Student) s1;</code><br>两者不能互相转换，可以使用条件判断是否可以转换。</p>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>抽象类不能实例化，也就是不能使用抽象类创建一个对象。<br>但抽象类也可以有构造方法，抽象类本身不能创建对象，但是继承抽象类的子类可以创建，子类创建时可以使用抽象类的构造方法。<br>有抽象方法的类一定是抽象类，但是抽象类中不一定要有抽象方法。<br>抽象类的子类必须重写抽象类中的所有抽象方法，除非子类也是抽象类。</p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>接口是对行为的抽象。<br>接口定义格式如下，接口不能被实例化，接口和类之间是实现关系。<br>须用implements关键字表示。<br>接口的子类(即实现类)，必须重写接口中的所有抽象方法，除非子类是抽象类。<br>接口和类的实现关系可以是单实现，也可以是多实现，即一个类可以实现多个接口，同时还能再继承一个类。<br>没有构造方法。<br>接口中的成员变量只能是常量，默认修饰符为public static final</p>
+<ul>
+<li>被final修饰的方法表明该方法为最终方法，不能被重写。</li>
+<li>修饰类表示最终类，不能被继承。</li>
+<li>修饰引用类型时，地址不能改变，但地址内部数据可以改变。</li>
+<li>修饰变量则变量只能且必须被赋值一次，作为常量。</li>
+</ul>
+<p>当一个类继承的两个接口中有着相同名字的方法，只需重写一次就等于将两个同名方法重写。<br>接口是对行为的抽象，需要让类拥有行为，就让类实现对应的接口。<br>当方法传入参数为接口时，则参数可以填入所有实现该接口的类的对象，这是接口的多态。  </p>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><blockquote>
+<p>在类内部的类就是内部类。</p>
+</blockquote>
+<p>内部类的特点，内部的类可以直接访问外部类的成员，包括私有，但外部类需要访问内部类成员，则需要创建对象。  </p>
+<p>匿名内部类创建格式为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> 类名或接口名()&#123;</span><br><span class="line">	 重写方法;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如下，已知Climb是一个接口</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Climb</span>() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">climb</span><span class="params">()</span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;重写climb方法&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里的类其实是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">climb</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;重写climb方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它没有名字，new Climb()代表这个类实现Climb接口，所以内部需要重写climb。<br>可以定义一个该类的对象来接收它</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Climb</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Climb</span>()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">climb</span><span class="params">()</span>&#123;重写的方法&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里并非是用接口实例化，而是接口的多态体现，Climbc接收的其实是实现了Climb接口的这个匿名类。<br>c可以接收所有实现了Climb的类。</p>
 
       
     </div>
