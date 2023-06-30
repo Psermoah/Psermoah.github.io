@@ -207,21 +207,21 @@ h1.title {font-size:30px;color:#333;line-height:1.3;position:relative;font-weigh
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-github:before {
+/* .icon-github:before {
   content: "\e7d1";
-}
+} */
 
 .icon-email:before {
   content: "\e6da";
 }
 
-.icon-wechat:before {
+/* .icon-wechat:before {
   content: "\e7e3";
-}
+} */
 
-.icon-twitter:before {
+/* .icon-twitter:before {
   content: "\e7e2";
-}
+} */
 
 
 /* tags style  */
